@@ -1,0 +1,123 @@
+/* =================================================================
+   THEME VARIABLES - Change colors/fonts here to update entire site
+   ================================================================= */
+
+:root {
+    /* ===== COLOR PALETTE - Dark Blue Monochromatic ===== */
+    
+    /* Background Colors */
+    --bg-primary: #0a0e1a;        /* Very dark blue (main background) */
+    --bg-secondary: #0f1419;      /* Slightly different dark (for alternating sections) */
+    --bg-tertiary: #1a2332;       /* Card/section backgrounds - lighter for contrast */
+    --bg-card: #1e2a40;           /* Dedicated card background - even lighter */
+    --bg-hover: #273d5a;          /* Hover states - more blue */
+    --bg-highlight: #2a3f5f;      /* Special highlighting */
+    
+    /* Accent Colors */
+    --accent-primary: #3b82f6;    /* Bright blue (CTAs, links) */
+    --accent-secondary: #60a5fa;  /* Lighter blue (hover states) */
+    --accent-dark: #2563eb;       /* Darker blue (active states) */
+    --accent-cyan: #06b6d4;       /* Cyan accent for variety */
+    --accent-purple: #8b5cf6;     /* Purple for alpha/future tech */
+    --accent-orange: #f97316;     /* Orange for alerts/highlights */
+    
+    /* Text Colors */
+    --text-primary: #f1f5f9;      /* Primary text (almost white) */
+    --text-secondary: #cbd5e1;    /* Secondary text (light gray) */
+    --text-muted: #94a3b8;        /* Muted text (medium gray) */
+    --text-inverse: #0a0e1a;      /* Text on light backgrounds */
+    
+    /* Border Colors */
+    --border-primary: #2d3f5f;    /* Primary borders - more visible */
+    --border-secondary: #1e2a3f;  /* Secondary borders */
+    --border-accent: #3b82f6;     /* Accent borders */
+    --border-glow: rgba(59, 130, 246, 0.3); /* Glowing border effect */
+    
+    /* Status Colors */
+    --status-alpha: #ef4444;      /* Alpha/in-development badge */
+    --status-alpha-bg: #991b1b;   /* Alpha badge background */
+    
+    
+    /* ===== TYPOGRAPHY ===== */
+    
+    /* Font Families */
+    --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    
+    /* Font Sizes */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    --text-6xl: 3.75rem;     /* 60px */
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-black: 900;
+    
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    
+    /* ===== SPACING ===== */
+    
+    --space-xs: 0.5rem;      /* 8px */
+    --space-sm: 1rem;        /* 16px */
+    --space-md: 1.5rem;      /* 24px */
+    --space-lg: 2rem;        /* 32px */
+    --space-xl: 3rem;        /* 48px */
+    --space-2xl: 4rem;       /* 64px */
+    --space-3xl: 6rem;       /* 96px */
+    
+    /* Section Padding */
+    --section-padding: 6rem 4rem;
+    --section-padding-mobile: 3rem 1.5rem;
+    
+    
+    /* ===== EFFECTS ===== */
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-base: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;   /* 6px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.75rem;    /* 12px */
+    --radius-xl: 1rem;       /* 16px */
+    --radius-full: 9999px;   /* Full rounded */
+    
+    
+    /* ===== LAYOUT ===== */
+    
+    /* Max Widths */
+    --max-width-content: 1400px;
+    --max-width-text: 65ch;
+    
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 10;
+    --z-sticky: 100;
+    --z-modal: 1000;
+    --z-tooltip: 2000;
+}

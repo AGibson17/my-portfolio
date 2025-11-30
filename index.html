@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andrew Gibson - Learning Experience Designer & UX Developer. Creating immersive learning experiences that put learners at the center.">
+    <meta name="keywords" content="Learning Experience Design, UX Design, Instructional Design, eLearning, ASP.NET, Educational Technology">
+    <meta name="author" content="Andrew Gibson">
+    
+    <title>Andrew Gibson | Learning Experience Designer × UX Developer</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon (add your favicon later) -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-logo">Andrew Gibson</div>
+        <ul class="nav-menu">
+            <li><a href="#professional">Professional Work</a></li>
+            <li><a href="#educational">Educational Lab</a></li>
+            <li><a href="#alpha">Alpha Showcase</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Tag Navigation (appears on scroll) -->
+    <div class="tag-nav">
+        <div class="tag-nav-menu">
+            <a href="#professional">Professional Work</a>
+            <a href="#educational">Educational Lab</a>
+            <a href="#alpha">Alpha Showcase</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="tag-nav-button" aria-label="Navigation Menu">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Andrew Gibson</h1>
+            <div class="hero-tagline">Learning Experience Designer × UX Developer</div>
+            <p class="hero-description">
+                I design immersive learning experiences that put learners at the center. Where most people say "Good enough," I say "What's next?" — because learning doesn't stop when the test is passed; it evolves, just like the learners.
+            </p>
+            <div class="hero-cta">
+                <a href="#professional" class="btn btn-primary">View Professional Work</a>
+                <a href="#educational" class="btn btn-secondary">Explore Educational Lab</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-visual">
+                <img src="images/hero/smartOtter.png" alt="Smart Otter Learning Illustration" class="hero-otter">
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Work Section -->
+    <section id="professional" class="section work-section">
+        <div class="container">
+            <h2 class="section-title">Professional Work</h2>
+            <p class="section-subtitle">Real-world learning solutions that drive measurable results</p>
+
+            <div class="work-grid">
+                
+                <!-- FEATURED: Customer Service Training Programs -->
+                <article class="work-card featured">
+    <div class="card-flip-container">
+        
+        <!-- ========== FRONT OF CARD ========== -->
+        <div class="card-front">
+            <div class="work-card-image-featured">
+                <img src="images/projects/customer-service.jpg" alt="Customer Service Training Programs" onerror="this.parentElement.innerHTML='<p>[Customer Service Training Programs Screenshot]</p>'">
+            </div>
+            <div class="work-card-content">
+                <h3 class="work-card-title">Customer Service Training Programs</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Hybrid Learning</span>
+                    <span class="tech-tag">ILT Design</span>
+                    <span class="tech-tag">Curriculum Development</span>
+                    <span class="tech-tag">From Scratch</span>
+                </div>
+                <p class="work-card-description">
+                    Two complete training curricula built from nothing—a 7-week hybrid program for BPO logistics 
+                    and a 3-week ILT program for tech support. Different industries, same philosophy: 
+                    prepare people to handle real calls on day one.
+                </p>
+                <div class="card-flip-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                    <span>Click to flip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========== BACK OF CARD ========== -->
+        <div class="card-back">
+            
+            <!-- Header with close button -->
+            <div class="card-back-header">
+                <h4 class="card-back-title">Customer Service Training Programs</h4>
+                <button class="card-back-close" aria-label="Close">×</button>
+            </div>
+            
+            <!-- Stats Grid (2x2) -->
+            <div class="card-back-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Service Level</div>
+                    <div class="stat-value">+52%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Retention</div>
+                    <div class="stat-value">+29%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Programs</div>
+                    <div class="stat-value">2 from scratch</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Total Curriculum</div>
+                    <div class="stat-value">10+ weeks</div>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <p class="card-back-summary">
+                First build was a "Frankenstein monstrosity" assembled from nothing; second build was cleaner, 
+                sharper, and became the baseline for all technical training. Both delivered real production 
+                value—trainees weren't just practicing, they were contributing.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="card-back-cta">
+                <a href="case-studies/customer-service-training.html" class="btn btn-primary">
+                    View Full Case Study →
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</article>
+
+                <!-- Digital Employee Handbook -->
+                <article class="work-card">
+    <div class="card-flip-container">
+        
+        <!-- ========== FRONT OF CARD ========== -->
+        <div class="card-front">
+            <div class="work-card-image">
+                <img src="images/projects/handbook.jpg" alt="Digital Employee Handbook" onerror="this.parentElement.innerHTML='<p>[Digital Handbook Interface]</p>'">
+            </div>
+            <div class="work-card-content">
+                <h3 class="work-card-title">Digital Employee Handbook</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET 8</span>
+                    <span class="tech-tag">Umbraco CMS</span>
+                    <span class="tech-tag">Frontend Auth</span>
+                    <span class="tech-tag">Search Analytics</span>
+                </div>
+                <p class="work-card-description">
+                    Transformed 200+ pages of static policies into a searchable digital handbook during a corporate merger—with zero backend access.
+                </p>
+                <div class="card-flip-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                    <span>Click to flip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========== BACK OF CARD ========== -->
+        <div class="card-back">
+            
+            <!-- Header with close button -->
+            <div class="card-back-header">
+                <h4 class="card-back-title">Digital Employee Handbook</h4>
+                <button class="card-back-close" aria-label="Close">×</button>
+            </div>
+            
+            <!-- Stats Grid (2x2) -->
+            <div class="card-back-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Users</div>
+                    <div class="stat-value">1,000+</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Timeline</div>
+                    <div class="stat-value">3 months</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Pages</div>
+                    <div class="stat-value">200+</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Backend Access</div>
+                    <div class="stat-value">Zero</div>
+                </div>
+            </div>
+            
+            <!-- Summary (2-3 sentences) -->
+            <p class="card-back-summary">
+                Engineered a custom authentication layer entirely from the frontend during a corporate merger—the login page IS the authenticator. Built full-text search, state-specific policy overlays (CA vs TX), and click-tracking analytics. All on an EOL CMS (Umbraco 7.14) I learned from scratch.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="card-back-cta">
+                <a href="case-studies/digital-employee-handbook.html" class="btn btn-primary">
+                    View Full Case Study →
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</article>
+
+                <!-- Managing Workplace Conflict -->
+                <article class="work-card">
+    <div class="card-flip-container">
+        
+        <!-- ========== FRONT OF CARD ========== -->
+        <div class="card-front">
+            <div class="work-card-image">
+                <img src="images/projects/conflict.jpg" alt="Managing Workplace Conflict" onerror="this.parentElement.innerHTML='<p>[Managing Workplace Conflict Course]</p>'">
+            </div>
+            <div class="work-card-content">
+                <h3 class="work-card-title">Managing Workplace Conflict</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Leadership Development</span>
+                    <span class="tech-tag">Storyline 360</span>
+                    <span class="tech-tag">Scenario-Based Learning</span>
+                </div>
+                <p class="work-card-description">
+                    WBT course designed to enhance leaders' ability to identify, address, and de-escalate team conflicts using evidence-based frameworks and interactive scenarios.
+                </p>
+                <div class="card-flip-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                    <span>Click to flip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========== BACK OF CARD ========== -->
+        <div class="card-back">
+            
+            <!-- Header with close button -->
+            <div class="card-back-header">
+                <h4 class="card-back-title">Managing Workplace Conflict</h4>
+                <button class="card-back-close" aria-label="Close">×</button>
+            </div>
+            
+            <!-- Stats Grid (2x2) -->
+            <div class="card-back-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">~40 min</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Format</div>
+                    <div class="stat-value">WBT</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Modules</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Approach</div>
+                    <div class="stat-value">Scenario-first</div>
+                </div>
+            </div>
+            
+            <!-- Summary (2-3 sentences) -->
+            <p class="card-back-summary">
+                Fully online course equipping leaders with practical tools to address workplace conflict in real-time. Uses high-stakes decision-making scenarios with branching paths, AI-generated video assessments, and interactive activities to transform passive knowledge into active leadership behavior.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="card-back-cta">
+                <a href="case-studies/managing-conflict.html" class="btn btn-primary">
+                    View Full Case Study →
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</article>
+
+                <!-- Difficult Conversations in the Workplace -->
+                <article class="work-card">
+    <div class="card-flip-container">
+        
+        <!-- ========== FRONT OF CARD ========== -->
+        <div class="card-front">
+            <div class="work-card-image">
+                <img src="images/projects/difficult-conversations.jpg" alt="Difficult Conversations in the Workplace" onerror="this.parentElement.innerHTML='<p>[Difficult Conversations Course]</p>'">
+            </div>
+            <div class="work-card-content">
+                <h3 class="work-card-title">Difficult Conversations in the Workplace</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Leadership Development</span>
+                    <span class="tech-tag">Custom Framework</span>
+                    <span class="tech-tag">ILT Design</span>
+                </div>
+                <p class="work-card-description">
+                    ILT course teaching managers to initiate and navigate uncomfortable-but-necessary workplace conversations. Features the custom GUIDE model for conversation planning.
+                </p>
+                <div class="card-flip-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                    <span>Click to flip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========== BACK OF CARD ========== -->
+        <div class="card-back">
+            
+            <!-- Header with close button -->
+            <div class="card-back-header">
+                <h4 class="card-back-title">Difficult Conversations in the Workplace</h4>
+                <button class="card-back-close" aria-label="Close">×</button>
+            </div>
+            
+            <!-- Stats Grid (2x2) -->
+            <div class="card-back-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Modules</div>
+                    <div class="stat-value">5 weekly</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">60-90 min</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Framework</div>
+                    <div class="stat-value">GUIDE Model</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Tracks</div>
+                    <div class="stat-value">2 (Mgr + Exec)</div>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <p class="card-back-summary">
+                Built around the GUIDE model—a custom conversation planning framework I developed with research backing from behavioral psychology, adult learning theory, and leadership science. Practical micro-moves, not abstract concepts.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="card-back-cta">
+                <a href="case-studies/difficult-conversations.html" class="btn btn-primary">
+                    View Full Case Study →
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</article>
+
+                <!-- PC Troubleshooting Fundamentals -->
+                <article class="work-card">
+    <div class="card-flip-container">
+        
+        <!-- ========== FRONT OF CARD ========== -->
+        <div class="card-front">
+            <div class="work-card-image">
+                <img src="images/projects/tech-support.jpg" alt="PC Troubleshooting Course" onerror="this.parentElement.innerHTML='<p>[PC Troubleshooting Course]</p>'">
+            </div>
+            <div class="work-card-content">
+                <h3 class="work-card-title">PC Troubleshooting Fundamentals</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Rise 360</span>
+                    <span class="tech-tag">Articulate AI</span>
+                    <span class="tech-tag">Technical Training</span>
+                </div>
+                <p class="work-card-description">
+                    Foundational technical training for new hire onboarding. AI-assisted development experiment that established baseline knowledge before role-specific training.
+                </p>
+                <div class="card-flip-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                    <span>Click to flip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ========== BACK OF CARD ========== -->
+        <div class="card-back">
+            
+            <!-- Header with close button -->
+            <div class="card-back-header">
+                <h4 class="card-back-title">PC Troubleshooting Fundamentals</h4>
+                <button class="card-back-close" aria-label="Close">×</button>
+            </div>
+            
+            <!-- Stats Grid (2x2) -->
+            <div class="card-back-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Lessons</div>
+                    <div class="stat-value">17</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">~2 hours</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Pass Rate</div>
+                    <div class="stat-value">100%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Placement</div>
+                    <div class="stat-value">Week 1 prereq</div>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <p class="card-back-summary">
+                Built as an AI-assisted development experiment when Articulate released their AI Assistant. Test-out options for experienced hires; comprehensive coverage for everyone else. Hardware, software, and networking fundamentals in one package.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="card-back-cta">
+                <a href="case-studies/pc-troubleshooting.html" class="btn btn-primary">
+                    View Full Case Study →
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Lab Section -->
+    <section id="educational" class="section educational-section">
+        <div class="container">
+            <h2 class="section-title">Educational Lab</h2>
+            <p class="section-subtitle">Interactive learning tools & experiments</p>
+
+            <div class="simulator-context">
+                <h3>🌋 Volcano Simulator</h3>
+                <p>
+                    Designed and developed for high school science students to explore plate tectonics through hands-on experimentation. Features multiple learning modes including free exploration, challenge scenarios, and real-world volcano recreation. Students can adjust magma type, gas content, and vent structure to understand how different factors influence volcanic eruptions.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Interactive Visualization</span>
+                    <span class="tech-tag">Adaptive Learning Modes</span>
+                    <span class="tech-tag">Game-Based Learning</span>
+                </div>
+                
+                <!-- User Instructions -->
+                <div class="simulator-instructions">
+                    <div class="instruction-icon">💡</div>
+                    <div class="instruction-content">
+                        <strong>Try it yourself!</strong> Switch to <strong>Challenge</strong> or <strong>Match It!</strong> modes at the top of the simulator to create specific volcano types. Use the mode buttons to test your understanding of volcanic formation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="simulator-embed">
+                <!-- Volcano Simulator Embed -->
+                <iframe 
+                    src="https://andrewjgibson.com/volcano-simulator/volcano-simulator-phase5.html"
+                    title="Interactive Volcano Simulator"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); margin-top: var(--space-xl);">
+                More educational tools and experiments coming soon...
+            </p>
+        </div>
+    </section>
+
+    <!-- Alpha Showcase Section -->
+    <section id="alpha" class="section alpha-section">
+        <div class="container">
+            <h2 class="section-title">Alpha Showcase</h2>
+            <p class="section-subtitle">Prototype projects exploring future L&D solutions</p>
+
+            <div class="alpha-grid">
+                
+                <!-- Catalyst Dashboard -->
+                <article class="alpha-card" data-alpha-modal="catalyst">
+                    <span class="alpha-badge">Alpha Development</span>
+                    <div class="alpha-card-image">
+                        <img src="images/alpha/catalyst.jpg" alt="Catalyst Dashboard" onerror="this.parentElement.innerHTML='<p>[Catalyst Dashboard Mockup]</p>'">
+                    </div>
+                    <div class="alpha-card-content">
+                        <h3>Catalyst - Onboarding Intelligence Platform</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React + Vite</span>
+                            <span class="tech-tag">Zustand</span>
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">Role-Based UX</span>
+                        </div>
+                        <p>
+                            Role-specific onboarding dashboard delivering tailored experiences for employees, managers, and HRBPs. Task management, progress tracking, and workflow automation.
+                        </p>
+                        <button class="work-card-cta alpha-modal-trigger">Learn More</button>
+                    </div>
+                </article>
+
+                <!-- HR AI Assistant -->
+                <article class="alpha-card" data-alpha-modal="nora">
+                    <span class="alpha-badge">Alpha Development</span>
+                    <div class="alpha-card-image">
+                        <img src="images/alpha/NORA.jpg" alt="HR AI Assistant" onerror="this.parentElement.innerHTML='<p>[HR AI Assistant Interface]</p>'">
+                    </div>
+                    <div class="alpha-card-content">
+                        <h3>N.O.R.A. — HR AI Assistant</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Conversational AI</span>
+                            <span class="tech-tag">Policy Automation</span>
+                            <span class="tech-tag">RAG Architecture</span>
+                        </div>
+                        <p>
+                            Intelligent assistant providing instant policy guidance and HR support, reducing response time while maintaining compliance accuracy.
+                        </p>
+                        <button class="work-card-cta alpha-modal-trigger">Learn More</button>
+                    </div>
+                </article>
+
+                <!-- FamilyCore -->
+                <article class="alpha-card" data-alpha-modal="familycore">
+                    <span class="alpha-badge">Concept Phase</span>
+                    <div class="alpha-card-image">
+                        <img src="images/alpha/familycore.png" alt="FamilyCore Platform" onerror="this.parentElement.innerHTML='<p>[FamilyCore Concept]</p>'">
+                    </div>
+                    <div class="alpha-card-content">
+                        <h3>FamilyCore — Family Management System</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Family LMS</span>
+                            <span class="tech-tag">Progress Tracking</span>
+                            <span class="tech-tag">Gamification</span>
+                        </div>
+                        <p>
+                            Family-focused system designed to coordinate household activities, track learning milestones, and celebrate growth together.
+                        </p>
+                        <button class="work-card-cta alpha-modal-trigger">Learn More</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Alpha Project Modals -->
+    <div class="alpha-modal-overlay" id="alphaModalOverlay">
+        
+        <!-- Catalyst Modal -->
+        <div class="alpha-modal" id="modal-catalyst">
+            <button class="alpha-modal-close" aria-label="Close modal">&times;</button>
+            <div class="alpha-modal-header">
+                <span class="alpha-modal-badge">Alpha Development</span>
+                <h3>Catalyst — Onboarding Intelligence Platform</h3>
+            </div>
+            <div class="alpha-modal-body">
+                <div class="alpha-modal-section">
+                    <h4>The Vision</h4>
+                    <p>
+                        A role-specific Progressive Web App that transforms employee onboarding from a checklist into an intelligent, guided experience. One codebase delivers three distinct dashboards optimized for different workflows: mobile-first for employees on personal devices, desktop-optimized for managers and HRBPs.
+                    </p>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Key Goals</h4>
+                    <ul class="alpha-modal-list">
+                        <li><strong>Reduce onboarding friction</strong> — Task dependencies auto-unlock as prerequisites complete</li>
+                        <li><strong>Surface actionable insights</strong> — Managers see who's behind, who needs attention, and what to do next</li>
+                        <li><strong>Integrate existing systems</strong> — Designed for ADP Workforce Now, ServiceNow, and Microsoft 365</li>
+                        <li><strong>Work anywhere</strong> — PWA installable on any device, offline-capable</li>
+                    </ul>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Current State</h4>
+                    <p>
+                        Functional prototype with working Manager and HRBP dashboards, Zustand state management with localStorage persistence, 64-task system across 4 roles, and neumorphic design system. AI integration points identified but not yet implemented—focusing on workflow automation first.
+                    </p>
+                </div>
+                <div class="alpha-modal-tech">
+                    <h4>Tech Stack</h4>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React 18</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Zustand</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">PWA / Workbox</span>
+                        <span class="tech-tag">React Router</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NORA Modal -->
+        <div class="alpha-modal" id="modal-nora">
+            <button class="alpha-modal-close" aria-label="Close modal">&times;</button>
+            <div class="alpha-modal-header">
+                <span class="alpha-modal-badge">Alpha Development</span>
+                <h3>N.O.R.A. — Neumo Organizational Resource Assistant</h3>
+            </div>
+            <div class="alpha-modal-body">
+                <div class="alpha-modal-section">
+                    <h4>The Vision</h4>
+                    <p>
+                        An AI-powered HR assistant that provides instant, accurate answers to policy questions—reducing the burden on HR teams while ensuring employees get consistent, compliant guidance. Think of it as a knowledgeable colleague who's read every policy document and never takes PTO.
+                    </p>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Key Goals</h4>
+                    <ul class="alpha-modal-list">
+                        <li><strong>Instant policy answers</strong> — Natural language queries against company documentation</li>
+                        <li><strong>Source transparency</strong> — Every answer links back to the authoritative policy source</li>
+                        <li><strong>Escalation paths</strong> — Knows when to hand off to a human HR representative</li>
+                        <li><strong>Compliance-first</strong> — Never guesses; admits uncertainty rather than hallucinating</li>
+                    </ul>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Current State</h4>
+                    <p>
+                        Conceptual architecture defined with RAG (Retrieval-Augmented Generation) approach. Designed to integrate with the Digital Employee Handbook as its knowledge base. Pending organizational approval for LLM integration and data governance review.
+                    </p>
+                </div>
+                <div class="alpha-modal-tech">
+                    <h4>Planned Tech Stack</h4>
+                    <div class="tech-stack">
+                        <span class="tech-tag">RAG Architecture</span>
+                        <span class="tech-tag">Vector Database</span>
+                        <span class="tech-tag">LLM Integration</span>
+                        <span class="tech-tag">Conversational UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FamilyCore Modal -->
+        <div class="alpha-modal" id="modal-familycore">
+            <button class="alpha-modal-close" aria-label="Close modal">&times;</button>
+            <div class="alpha-modal-header">
+                <span class="alpha-modal-badge">Concept Phase</span>
+                <h3>FamilyCore — Family Management System</h3>
+            </div>
+            <div class="alpha-modal-body">
+                <div class="alpha-modal-section">
+                    <h4>The Vision</h4>
+                    <p>
+                        Bringing the best of learning management systems into the home. A family-focused platform that helps parents coordinate educational activities, track children's progress across subjects and skills, and celebrate learning milestones together—without the corporate overhead.
+                    </p>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Key Goals</h4>
+                    <ul class="alpha-modal-list">
+                        <li><strong>Unified family dashboard</strong> — See everyone's progress, upcoming activities, and achievements</li>
+                        <li><strong>Flexible curriculum support</strong> — Works with homeschool, supplemental learning, or extracurriculars</li>
+                        <li><strong>Kid-friendly interfaces</strong> — Age-appropriate views that make progress visible and rewarding</li>
+                        <li><strong>Family milestones</strong> — Celebrate achievements together, not just individually</li>
+                    </ul>
+                </div>
+                <div class="alpha-modal-section">
+                    <h4>Current State</h4>
+                    <p>
+                        Early concept phase. Core feature set defined based on personal experience managing a household with multiple children's activities. Looking at lightweight tech stack options that prioritize simplicity over enterprise features.
+                    </p>
+                </div>
+                <div class="alpha-modal-tech">
+                    <h4>Planned Tech Stack</h4>
+                    <div class="tech-stack">
+                        <span class="tech-tag">TBD — Lightweight Framework</span>
+                        <span class="tech-tag">Mobile-First</span>
+                        <span class="tech-tag">Family-Safe Auth</span>
+                        <span class="tech-tag">Progress Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>My Story</h3>
+                    <p>
+                        Coming from a family of educators, I've always believed that learning is more than just passing tests—it's about creating experiences that stick with people long after the lesson ends.
+                    </p>
+                    <p>
+                        I combine nearly 15 years of experience spanning UX design (since 2016) and instructional systems design (since 2020) with technical development capabilities in ASP.NET 8/C#. Whether I'm building a web-based training program or coding a custom learning platform, my focus remains the same: putting the learner at the center of everything.
+                    </p>
+                    <p>
+                        I believe in human-centered solutions that create meaningful impact beyond corporate profits. Learning doesn't stop when the test is passed; it evolves, just like the learners—and that's what drives me to keep pushing for better.
+                    </p>
+                </div>
+                
+                <div class="about-content">
+                    <h3>My Approach</h3>
+                    <p>
+                        <strong>Organic Design:</strong> I prefer using structure as a foundation for creativity rather than rigid constraints. Think free-range, not caged. This philosophy extends to how I approach problem-solving—starting with a solid framework but allowing the solution to evolve naturally.
+                    </p>
+                    <p>
+                        <strong>AI as Collaboration:</strong> I use AI tools like Claude and GitHub Copilot as collaborative partners, enhancing rather than replacing human thinking and intentionality. The goal is to amplify creativity and efficiency while maintaining authentic human voice.
+                    </p>
+                    <p>
+                        <strong>Measurable Impact:</strong> Recent achievements include a 52 percentage point improvement in service level achievement and 29% increase in new hire retention from L&D programs I designed and implemented.
+                    </p>
+                    
+                    <h3 style="margin-top: var(--space-xl);">Skills & Tools</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Articulate Rise 360</span>
+                        <span class="tech-tag">Articulate Storyline 360</span>
+                        <span class="tech-tag">ASP.NET 8 / C#</span>
+                        <span class="tech-tag">HTML/CSS/JavaScript</span>
+                        <span class="tech-tag">UX/UI Design</span>
+                        <span class="tech-tag">Learning Analytics</span>
+                        <span class="tech-tag">Curriculum Development</span>
+                        <span class="tech-tag">Instructional Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Better Together</h2>
+            <p class="contact-description">
+                Ready to create learning experiences that actually work?
+            </p>
+            <div class="contact-links">
+                <a href="mailto:andrew.j.gibs@gmail.com">📧 Email</a>
+                <a href="https://www.linkedin.com/in/andrew-gibson/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a href="assets/resume.pdf" target="_blank">📄 Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="js/navigation.js"></script>
+    <script src="js/card-flip.js"></script>
+    <script src="js/alpha-modals.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

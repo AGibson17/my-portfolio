@@ -1,0 +1,60 @@
+/* ========================================
+   HERO OTTER ANIMATION STYLES
+   Add this to the END of your main.css file
+   ======================================== */
+
+/* Hero Otter Image */
+.hero-otter {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Add subtle pulse to make it feel more alive */
+.hero-otter:hover {
+    animation: float 6s ease-in-out infinite, pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) translateY(0px);
+    }
+    50% {
+        transform: scale(1.02) translateY(-20px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-otter {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-otter {
+        max-width: 300px;
+    }
+    
+    /* Reduce animation intensity on mobile */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+}

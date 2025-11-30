@@ -1,0 +1,217 @@
+/* =================================================================
+   RESPONSIVE STYLES - Mobile & Tablet Breakpoints
+   ================================================================= */
+
+/* ===== TABLET (max-width: 1024px) ===== */
+
+@media (max-width: 1024px) {
+    
+    /* Hero Section */
+    .hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+        padding: var(--space-2xl) var(--space-md);
+        text-align: center;
+    }
+    
+    .hero-description {
+        max-width: none;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .hero-visual {
+        display: none;
+    }
+    
+    /* Work Grid */
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .work-card.featured {
+        grid-column: span 1;
+    }
+    
+    /* About Grid */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    
+    /* Section Padding */
+    .section {
+        padding: var(--space-3xl) var(--space-md);
+    }
+}
+
+/* ===== MOBILE (max-width: 768px) ===== */
+
+@media (max-width: 768px) {
+    
+    /* Typography Adjustments */
+    h1 {
+        font-size: var(--text-4xl);
+    }
+    
+    h2,
+    .section-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .hero-tagline {
+        font-size: var(--text-xl);
+    }
+    
+    .hero-description {
+        font-size: var(--text-base);
+    }
+    
+    /* Navigation */
+    .nav-bar {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .nav-logo {
+        font-size: var(--text-xl);
+    }
+    
+    .nav-menu {
+        display: none; /* Hide menu on mobile, use FAB instead */
+    }
+    
+    /* FAB always visible on mobile */
+    .fab-nav {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding: calc(var(--space-3xl) + 60px) var(--space-md) var(--space-2xl);
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Work Cards */
+    .work-card-image,
+    .work-card.featured .work-card-image {
+        height: 200px;
+    }
+    
+    .work-card-content {
+        padding: var(--space-md);
+    }
+    
+    .work-card-title {
+        font-size: var(--text-xl);
+    }
+    
+    /* Alpha Grid */
+    .alpha-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Simulator Embed */
+    .simulator-embed {
+        padding: var(--space-sm);
+        min-height: 500px;
+    }
+    
+    .simulator-embed iframe {
+        height: 450px;
+    }
+    
+    .simulator-context {
+        padding: var(--space-md);
+    }
+    
+    /* Contact Links */
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+    }
+    
+    /* Section Padding */
+    .section {
+        padding: var(--section-padding-mobile);
+    }
+    
+    /* FAB Position */
+    .fab-nav {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+/* ===== SMALL MOBILE (max-width: 480px) ===== */
+
+@media (max-width: 480px) {
+    
+    /* Typography */
+    h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    h2,
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+    
+    /* Reduce spacing on very small screens */
+    .section {
+        padding: var(--space-2xl) var(--space-sm);
+    }
+    
+    .work-grid,
+    .alpha-grid {
+        gap: var(--space-md);
+    }
+    
+    /* Tech Tags */
+    .tech-stack {
+        gap: 0.375rem;
+    }
+    
+    .tech-tag {
+        font-size: var(--text-xs);
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--text-sm);
+    }
+}
+
+/* ===== LARGE DESKTOP (min-width: 1600px) ===== */
+
+@media (min-width: 1600px) {
+    
+    /* Increase max-width for large screens */
+    .container {
+        max-width: 1600px;
+    }
+    
+    /* Slightly larger typography */
+    h1 {
+        font-size: 4.5rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+}

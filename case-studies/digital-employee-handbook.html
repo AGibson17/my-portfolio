@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Study: Digital Employee Handbook - Solving authentication without backend access during a corporate merger">
+    <title>Digital Employee Handbook | Andrew Gibson</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-3xl);
+            padding-top: calc(var(--space-3xl) + 80px); /* Account for nav */
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+        }
+        
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .case-study-label {
+            color: var(--accent-cyan);
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .case-study-title {
+            font-size: var(--text-5xl);
+            font-weight: var(--font-black);
+            margin-bottom: var(--space-md);
+            max-width: 800px;
+        }
+        
+        .case-study-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Quick Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-primary);
+        }
+        
+        .stat-block {
+            text-align: left;
+        }
+        
+        .stat-number {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-black);
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+        
+        .stat-number.highlight {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-desc {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        
+        /* TL;DR Section */
+        .tldr-section {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-3xl) auto;
+            max-width: var(--max-width-content);
+            position: relative;
+        }
+        
+        .tldr-label {
+            position: absolute;
+            top: -12px;
+            left: var(--space-lg);
+            background: var(--accent-primary);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            border-radius: var(--radius-sm);
+        }
+        
+        .tldr-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+        
+        .tldr-column h4 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--accent-cyan);
+        }
+        
+        .tldr-column p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin: 0;
+        }
+        
+        /* Content Sections */
+        .case-content {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .content-section {
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .content-section h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan));
+            border-radius: 2px;
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Constraint Callout */
+        .constraint-callout {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border-left: 4px solid #ef4444;
+            padding: var(--space-lg);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: var(--space-xl) 0;
+        }
+        
+        .constraint-callout h4 {
+            color: #ef4444;
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .constraint-callout p {
+            margin: 0;
+        }
+        
+        /* Solution Highlight */
+        .solution-highlight {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05));
+            border-left: 4px solid var(--accent-primary);
+            padding: var(--space-lg);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: var(--space-xl) 0;
+        }
+        
+        .solution-highlight h4 {
+            color: var(--accent-primary);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .solution-highlight p {
+            margin: 0;
+        }
+        
+        /* Before/After Comparison */
+        .comparison-section {
+            margin: var(--space-3xl) 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+        
+        .comparison-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--border-primary);
+        }
+        
+        .comparison-item.before {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        .comparison-item.after {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .comparison-label {
+            padding: var(--space-sm) var(--space-md);
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-item.before .comparison-label {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .comparison-item.after .comparison-label {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+        
+        .comparison-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .comparison-caption {
+            padding: var(--space-md);
+            background: var(--bg-tertiary);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+        
+        /* Tech Stack Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+        }
+        
+        .tech-item-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .tech-item-value {
+            font-weight: var(--font-semibold);
+            color: var(--accent-primary);
+        }
+        
+        /* Features List */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+        }
+        
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            font-size: var(--text-lg);
+        }
+        
+        .feature-card p {
+            margin: 0;
+            font-size: var(--text-sm);
+        }
+        
+        /* Timeline */
+        .project-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            padding: var(--space-lg);
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-primary);
+            margin-top: var(--space-lg);
+        }
+        
+        .meta-item {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .meta-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .meta-value {
+            font-weight: var(--font-semibold);
+            color: var(--text-primary);
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-lg);
+            transition: color var(--transition-base);
+        }
+        
+        .back-link:hover {
+            color: var(--accent-primary);
+        }
+        
+        .back-link::before {
+            content: '←';
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--bg-secondary);
+            margin-top: var(--space-3xl);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-study-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .stats-bar {
+                gap: var(--space-lg);
+            }
+            
+            .stat-number {
+                font-size: var(--text-2xl);
+            }
+            
+            .tldr-content,
+            .comparison-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Andrew Gibson</a></div>
+        <ul class="nav-menu">
+            <li><a href="../index.html#professional">Professional Work</a></li>
+            <li><a href="../index.html#educational">Educational Lab</a></li>
+            <li><a href="../index.html#alpha">Alpha Showcase</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="case-study-hero">
+        <a href="../index.html#professional" class="back-link">Back to Professional Work</a>
+        
+        <span class="case-study-label">Case Study</span>
+        <h1 class="case-study-title">Digital Employee Handbook</h1>
+        <p class="case-study-subtitle">
+            Engineering authentication without backend access during a corporate merger. 
+            200+ pages of policy chaos → unified, searchable platform for 1,000+ employees.
+        </p>
+        
+        <div class="stats-bar">
+            <div class="stat-block">
+                <div class="stat-number highlight">1,000+</div>
+                <div class="stat-desc">Employees served</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">200+</div>
+                <div class="stat-desc">Pages consolidated</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">0</div>
+                <div class="stat-desc">Backend access</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">3</div>
+                <div class="stat-desc">Months to ship</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TL;DR Section -->
+    <div class="tldr-section">
+        <span class="tldr-label">TL;DR</span>
+        <div class="tldr-content">
+            <div class="tldr-column">
+                <h4>The Problem</h4>
+                <p>
+                    Corporate merger created policy chaos. 200+ pages scattered across PDFs. 
+                    Different employee groups needed different access. <strong>I had zero backend access</strong> 
+                    to the existing infrastructure during the transition.
+                </p>
+            </div>
+            <div class="tldr-column">
+                <h4>The Solution</h4>
+                <p>
+                    Engineered a custom authentication layer entirely from the frontend—the login page 
+                    <em>is</em> the authenticator. Built full-text search, state-specific policy overlays, 
+                    and analytics infrastructure. All on an EOL CMS (Umbraco 7.14) I had to learn from scratch.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="case-content">
+        
+        <!-- The Challenge -->
+        <section class="content-section">
+            <h2>The Challenge</h2>
+            <p>
+                In 2024, Neumo underwent a significant corporate merger—combining two organizations with distinct 
+                cultures, processes, and most critically, different policy documentation. Over 200 pages of static 
+                PDFs sat scattered across legacy systems, with no unified way for the combined workforce to find 
+                what they needed.
+            </p>
+            <p>
+                Employees were spending 15+ minutes searching for specific policies. The most common HR support 
+                tickets? "Where do I find [policy X]?" Different state locations (California, Texas, etc.) had 
+                jurisdiction-specific variations buried in footnotes. New hires from the acquired company had no 
+                idea which legacy policies still applied to them.
+            </p>
+            
+            <div class="constraint-callout">
+                <h4>🚫 The Constraint That Changed Everything</h4>
+                <p>
+                    During the merger transition, <strong>I had zero access to the backend infrastructure</strong>. 
+                    No database modifications. No server-side authentication. No API endpoints I could leverage. 
+                    Any solution had to work entirely from what I could control: the frontend.
+                </p>
+            </div>
+            
+            <p>
+                Oh, and the platform I had to build on? <strong>Umbraco 7.14</strong>—a CMS that hit end-of-life 
+                in 2023. I had to learn Umbraco from scratch while building to its constraints.
+            </p>
+        </section>
+        
+        <!-- My Role -->
+        <section class="content-section">
+            <h2>My Role</h2>
+            <p>
+                As a one-person L&D department, I owned this end-to-end: research, UX design, technical architecture, 
+                development, content strategy, and stakeholder management across both merged organizations.
+            </p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">3 months</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Team Size</div>
+                    <div class="meta-value">Solo (with AI assistance)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Primary Tools</div>
+                    <div class="meta-value">ASP.NET 8, Umbraco CMS, SQLite</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Stakeholders</div>
+                    <div class="meta-value">HR, IT, Leadership (both orgs)</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Solution -->
+        <section class="content-section">
+            <h2>The Solution</h2>
+            
+            <div class="solution-highlight">
+                <h4>💡 The Key Innovation</h4>
+                <p>
+                    Traditional authentication requires backend validation. Without backend access, I inverted the model: 
+                    <strong>the login page itself became the authenticator</strong>. The frontend handles role verification 
+                    and routes users to appropriate content—achieving the same business outcome without touching the backend.
+                </p>
+            </div>
+            
+            <p>
+                Beyond authentication, I built a complete platform transformation:
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🔍 Full-Text Search</h4>
+                    <p>
+                        Instant search across all 200+ policies using Umbraco's content cache. 
+                        Employees find answers in seconds instead of digging through PDFs.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>📍 State-Specific Overlays</h4>
+                    <p>
+                        California employees see CA employment policies. Texas employees see TX policies. 
+                        Jurisdiction-specific content surfaced automatically, not buried in footnotes.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Analytics Infrastructure</h4>
+                    <p>
+                        Click tracking captures which policies employees access and what they search for. 
+                        Data foundation for identifying gaps and measuring engagement.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>✏️ CMS for Non-Technical Editors</h4>
+                    <p>
+                        HR can update policies through Umbraco's backoffice without touching code. 
+                        Sustainable solution that doesn't require developer involvement for routine changes.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interface Screenshot -->
+        <section class="content-section">
+            <h2>The Interface</h2>
+            <p>
+                The final product prioritizes findability over organization charts. Search-first design, 
+                card-based categories, and a state selector that surfaces jurisdiction-specific content 
+                without burying it in footnotes.
+            </p>
+            
+            <div style="margin-top: var(--space-lg); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-primary);">
+                <img src="../images/projects/handbook.jpg" alt="Digital Employee Handbook interface" style="width: 100%; display: block;">
+            </div>
+        </section>
+        
+        <!-- Tech Stack -->
+        <section class="content-section">
+            <h2>Tech Stack</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-item-label">Backend Framework</div>
+                    <div class="tech-item-value">ASP.NET 8 / C#</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">CMS</div>
+                    <div class="tech-item-value">Umbraco 16 (migrated from 7.14)</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Database</div>
+                    <div class="tech-item-value">SQLite (analytics)</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Content Sync</div>
+                    <div class="tech-item-value">uSync</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Frontend</div>
+                    <div class="tech-item-value">Razor, HTML/CSS/JS</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">AI Assistance</div>
+                    <div class="tech-item-value">GitHub Copilot, Claude</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: var(--space-lg);">
+                <strong>On AI-assisted development:</strong> I used AI tools strategically during the authentication 
+                engineering phase to accelerate iteration cycles. All architecture decisions, UX design, and system 
+                integration remained human-directed. AI shortened development time; it didn't make the hard decisions.
+            </p>
+        </section>
+        
+        <!-- Results -->
+        <section class="content-section">
+            <h2>The Results</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>⚡ Seconds vs. Minutes</h4>
+                    <p>
+                        Policy lookup time dropped from 15+ minutes of PDF searching to instant search results.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>📉 Reduced HR Load</h4>
+                    <p>
+                        "Where do I find [policy]?" tickets decreased significantly as employees could self-serve.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔐 Access Control Without Backend</h4>
+                    <p>
+                        Different employee groups see appropriate policy sets—achieved without any backend modifications.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 Mobile-Ready</h4>
+                    <p>
+                        Responsive design means employees can reference policies from anywhere, not just their desks.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Key Learnings -->
+        <section class="content-section">
+            <h2>Key Learnings</h2>
+            
+            <p>
+                <strong>Constraints force creativity.</strong> The no-backend-access constraint initially seemed like 
+                a project-killer. It became the most interesting technical challenge. The solution I built wouldn't 
+                have emerged if I'd had unlimited access—I would have built something more conventional.
+            </p>
+            
+            <p>
+                <strong>UX problems masquerade as technical problems.</strong> The original brief was "digitize our 
+                policy PDFs." The actual problem was "employees can't find information they need." A prettier PDF 
+                viewer wouldn't have solved the wayfinding problem.
+            </p>
+            
+            <p>
+                <strong>Ship the 80% solution.</strong> The search isn't as sophisticated as Elasticsearch. The 
+                analytics aren't as rich as a full BI pipeline. But both shipped quickly and provide a foundation 
+                for iteration based on real usage data.
+            </p>
+        </section>
+        
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Interested in Working Together?</h2>
+        <p>I solve messy real-world problems, not just tutorial exercises.</p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="../index.html#professional" class="btn btn-secondary">View More Work</a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

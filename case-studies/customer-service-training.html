@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Study: Customer Service Training Programs - Two complete curricula built from scratch for different industries">
+    <title>Customer Service Training Programs | Andrew Gibson</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <style>
+        /* Case Study Hero */
+        .case-study-hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-3xl);
+            padding-top: calc(var(--space-3xl) + 80px);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            text-align: center;
+        }
+        
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .case-study-label {
+            color: var(--accent-cyan);
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .case-study-title {
+            font-size: var(--text-5xl);
+            font-weight: var(--font-black);
+            margin-bottom: var(--space-md);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .case-study-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-lg);
+            transition: color var(--transition-base);
+            position: absolute;
+            top: calc(80px + var(--space-xl));
+            left: var(--space-xl);
+        }
+        
+        .back-link:hover {
+            color: var(--accent-primary);
+        }
+        
+        .back-link::before {
+            content: '←';
+        }
+        
+        /* Combined Stats Bar */
+        .combined-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-3xl);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-primary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-block {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-black);
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+        
+        .stat-number.highlight {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-desc {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        
+        /* Split Screen Container */
+        .split-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+        }
+        
+        .split-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-3xl);
+        }
+        
+        .split-intro h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .split-intro p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* The Split Columns */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            position: relative;
+        }
+        
+        /* Center divider line */
+        .split-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                var(--border-primary) 10%, 
+                var(--border-primary) 90%, 
+                transparent 100%);
+        }
+        
+        .program-column {
+            padding: var(--space-xl);
+        }
+        
+        /* Program Headers */
+        .program-header {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--border-primary);
+        }
+        
+        .program-badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: var(--font-bold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .program-column.left .program-badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-primary);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .program-column.right .program-badge {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        
+        .program-title {
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .program-meta {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+        }
+        
+        /* Program Stats Grid */
+        .program-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .program-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            text-align: center;
+        }
+        
+        .program-stat-value {
+            font-size: var(--text-xl);
+            font-weight: var(--font-bold);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .program-column.left .program-stat-value {
+            color: var(--accent-primary);
+        }
+        
+        .program-column.right .program-stat-value {
+            color: var(--accent-cyan);
+        }
+        
+        .program-stat-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Section Styling */
+        .program-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .program-section h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        
+        .program-section p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            font-size: var(--text-base);
+        }
+        
+        /* Approach List */
+        .approach-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .approach-list li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        
+        .approach-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .approach-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+        
+        .program-column.right .approach-list li::before {
+            color: var(--accent-cyan);
+        }
+        
+        /* Tools Used */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+        
+        .tool-tag {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        /* Quote/Reflection */
+        .program-quote {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-top: var(--space-xl);
+            font-style: italic;
+            color: var(--text-secondary);
+            position: relative;
+        }
+        
+        .program-column.left .program-quote {
+            border-left: 3px solid var(--accent-primary);
+        }
+        
+        .program-column.right .program-quote {
+            border-left: 3px solid var(--accent-cyan);
+        }
+        
+        /* Combined Insights Section */
+        .insights-section {
+            background: var(--bg-secondary);
+            padding: var(--space-3xl) var(--space-lg);
+        }
+        
+        .insights-container {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+        }
+        
+        .insights-container h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+        
+        .insight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+        
+        .insight-card h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--accent-primary);
+        }
+        
+        .insight-card p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--bg-primary);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Responsive - Stack on Mobile */
+        @media (max-width: 900px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3xl);
+            }
+            
+            .split-grid::before {
+                display: none;
+            }
+            
+            .program-column {
+                padding: var(--space-lg);
+                border: 2px solid var(--border-primary);
+                border-radius: var(--radius-lg);
+                background: var(--bg-card);
+            }
+            
+            .program-column.left {
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+            
+            .program-column.right {
+                border-color: rgba(6, 182, 212, 0.3);
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .combined-stats {
+                gap: var(--space-xl);
+            }
+            
+            .stat-number {
+                font-size: var(--text-2xl);
+            }
+            
+            .back-link {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .program-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Andrew Gibson</a></div>
+        <ul class="nav-menu">
+            <li><a href="../index.html#professional">Professional Work</a></li>
+            <li><a href="../index.html#educational">Educational Lab</a></li>
+            <li><a href="../index.html#alpha">Alpha Showcase</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="case-study-hero">
+        <a href="../index.html#professional" class="back-link">Back to Professional Work</a>
+        
+        <span class="case-study-label">Case Study</span>
+        <h1 class="case-study-title">Customer Service Training Programs</h1>
+        <p class="case-study-subtitle">
+            Two complete curricula built from scratch. Different industries, different delivery methods, 
+            same goal: prepare people to handle real calls on day one.
+        </p>
+        
+        <div class="combined-stats">
+            <div class="stat-block">
+                <div class="stat-number highlight">+52%</div>
+                <div class="stat-desc">Service level improvement</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">+29%</div>
+                <div class="stat-desc">New hire retention</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">2</div>
+                <div class="stat-desc">Programs from scratch</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">10+</div>
+                <div class="stat-desc">Weeks of curriculum</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Split Screen Section -->
+    <div class="split-container">
+        
+        <div class="split-intro">
+            <h2>Two Programs, One Philosophy</h2>
+            <p>
+                These weren't course tweaks or template fills. Each program was built from nothing—no existing 
+                curriculum, no corporate playbook, just a clear need and a blank page. The contrast between them 
+                shows how the same instructional design principles adapt to wildly different contexts.
+            </p>
+        </div>
+        
+        <div class="split-grid">
+            
+            <!-- LEFT COLUMN: DRS Program -->
+            <div class="program-column left">
+                
+                <div class="program-header">
+                    <span class="program-badge">First Build</span>
+                    <h2 class="program-title">Driver Road Services</h2>
+                    <p class="program-meta">7-Week Hybrid Program • BPO/Logistics • VILT Delivery</p>
+                </div>
+                
+                <div class="program-stats">
+                    <div class="program-stat">
+                        <div class="program-stat-value">7 weeks</div>
+                        <div class="program-stat-label">Duration</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">Remote</div>
+                        <div class="program-stat-label">Delivery</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">3-4</div>
+                        <div class="program-stat-label">Cohort Size</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">Hybrid</div>
+                        <div class="program-stat-label">Format</div>
+                    </div>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Context</h3>
+                    <p>
+                        BPO call center handling emergency roadside assistance for corporate truck drivers. 
+                        Agents managed repair calls, rentals, and labor dispatch—often coordinating under 
+                        pressure with incomplete information. Complex, high-stakes, and zero room for error.
+                    </p>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Challenge</h3>
+                    <p>
+                        No existing training materials. Multiple call types with different workflows. 
+                        Remote delivery via Teams with small cohorts. The 7-week timeline raised eyebrows 
+                        with leadership—I had to prove value early to keep buy-in.
+                    </p>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Approach</h3>
+                    <ul class="approach-list">
+                        <li>Modular progression: each week introduced new call type</li>
+                        <li>Real production nesting after classroom instruction</li>
+                        <li>Storyline 360 simulations for high-stakes scenarios</li>
+                        <li>Job aids designed for live call reference</li>
+                        <li>Alternating classroom → OJT → classroom rhythm</li>
+                    </ul>
+                </div>
+                
+                <div class="program-section">
+                    <h3>Tools Used</h3>
+                    <div class="tools-grid">
+                        <span class="tool-tag">Microsoft Teams</span>
+                        <span class="tool-tag">Rise 360</span>
+                        <span class="tool-tag">Storyline 360</span>
+                        <span class="tool-tag">Google Workspace</span>
+                    </div>
+                </div>
+                
+                <div class="program-section">
+                    <h3>Results</h3>
+                    <p>
+                        Reduced escalation rates. Improved call handling consistency. Leadership buy-in 
+                        secured by delivering real production value during training—trainees weren't just 
+                        practicing, they were contributing.
+                    </p>
+                </div>
+                
+                <div class="program-quote">
+                    "This was my first full curriculum build. No templates, no corporate playbook—just what 
+                    I could scrounge from the freest corners of the internet to piece together a monstrosity 
+                    Dr. Frankenstein himself would be in awe of. It's where I learned that structure matters, 
+                    iteration saves lives, and if you actually pay attention to your learners, the rest will follow."
+                </div>
+                
+            </div>
+            
+            <!-- RIGHT COLUMN: Customer Care Program -->
+            <div class="program-column right">
+                
+                <div class="program-header">
+                    <span class="program-badge">Second Build</span>
+                    <h2 class="program-title">Customer Care Technician</h2>
+                    <p class="program-meta">3-Week ILT Program • Tech Support • In-Person Delivery</p>
+                </div>
+                
+                <div class="program-stats">
+                    <div class="program-stat">
+                        <div class="program-stat-value">3 weeks</div>
+                        <div class="program-stat-label">Duration</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">In-Person</div>
+                        <div class="program-stat-label">Delivery</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">Small</div>
+                        <div class="program-stat-label">Cohort Size</div>
+                    </div>
+                    <div class="program-stat">
+                        <div class="program-stat-value">100% ILT</div>
+                        <div class="program-stat-label">Format</div>
+                    </div>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Context</h3>
+                    <p>
+                        Tech support team handling state-run Self-Service Terminals (kiosks) for vehicle 
+                        transactions. Card readers, printers, touchscreens, EPCs—and every state had different 
+                        systems, rules, and error protocols. Anything but simple.
+                    </p>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Challenge</h3>
+                    <p>
+                        Original training relied on informal shadowing and outdated references. Not sustainable, 
+                        not scalable. I needed to build a repeatable curriculum aligned with real QA standards 
+                        that could reduce ramp time while I personally delivered the first cohorts.
+                    </p>
+                </div>
+                
+                <div class="program-section">
+                    <h3>The Approach</h3>
+                    <ul class="approach-list">
+                        <li>100% in-person, facilitator-led instruction</li>
+                        <li>Salesforce sandbox for full-day case simulations</li>
+                        <li>Progressive complexity: each day built on the last</li>
+                        <li>QA rubric integration from day one</li>
+                        <li>Daily knowledge checks via Storyline 360</li>
+                    </ul>
+                </div>
+                
+                <div class="program-section">
+                    <h3>Tools Used</h3>
+                    <div class="tools-grid">
+                        <span class="tool-tag">Salesforce Sandbox</span>
+                        <span class="tool-tag">Storyline 360</span>
+                        <span class="tool-tag">Microsoft 365</span>
+                        <span class="tool-tag">Printed Job Aids</span>
+                    </div>
+                </div>
+                
+                <div class="program-section">
+                    <h3>Results</h3>
+                    <p>
+                        Trainees hit milestones faster than straight OJT. By Week 2, they were contributing 
+                        production-quality documentation. Team leads reported higher understanding from new hires. 
+                        The framework is now the baseline for all technical call center training.
+                    </p>
+                </div>
+                
+                <div class="program-quote">
+                    "This was my second full curriculum build. I designed it, delivered it, and now I'm developing 
+                    someone else to lead it. There were plenty of frustrations gathering information about the 
+                    existing process—mainly because there was no official process. It was just three kids in a 
+                    trench coat trying to disguise themselves as a process."
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Combined Insights Section -->
+    <section class="insights-section">
+        <div class="insights-container">
+            <h2>What I Learned Building Both</h2>
+            
+            <div class="insights-grid">
+                
+                <div class="insight-card">
+                    <h3>Structure Creates Freedom</h3>
+                    <p>
+                        Both programs succeeded because of clear weekly progressions. When learners know 
+                        what's coming and why, they engage deeper. The structure isn't a cage—it's a 
+                        foundation that lets you improvise when moments demand it.
+                    </p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>Production Value Earns Buy-In</h3>
+                    <p>
+                        The 7-week DRS timeline scared leadership until trainees started handling real calls 
+                        in Week 3. When training contributes actual work product, the "cost" conversation shifts 
+                        to "investment." Show value early.
+                    </p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>Delivery Method ≠ Quality</h3>
+                    <p>
+                        Remote VILT and in-person ILT both worked—because both were designed intentionally. 
+                        The medium doesn't make training good or bad; the design decisions do. Match the method 
+                        to the content and context.
+                    </p>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>Your First Build Teaches You Everything</h3>
+                    <p>
+                        DRS was a Frankenstein monster. Customer Care was cleaner. The difference wasn't talent—it 
+                        was experience. You can't skip the messy first attempt. Embrace it, learn fast, and make 
+                        the next one better.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>From Blank Page to Production-Ready</h2>
+        <p>I build training programs that work in the real world—not just in theory.</p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="../index.html#professional" class="btn btn-secondary">View More Work</a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

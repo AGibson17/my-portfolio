@@ -1,0 +1,39 @@
+# Git ignore file for portfolio project
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Backup files
+*.bak
+*~
+
+# Large source files (keep optimized versions only)
+*.psd
+*.ai
+*.sketch
+
+# Sensitive information
+.env
+config.local.js
+
+# Build files (if you add build tools later)
+node_modules/
+dist/
+build/

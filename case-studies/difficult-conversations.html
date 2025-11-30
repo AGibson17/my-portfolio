@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Study: Difficult Conversations in the Workplace - A leadership development course featuring the custom GUIDE conversation planning model">
+    <title>Difficult Conversations in the Workplace | Andrew Gibson</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <style>
+        /* Case Study Hero */
+        .case-study-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-3xl);
+            padding-top: calc(var(--space-3xl) + 80px);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+        }
+        
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .case-study-label {
+            color: var(--accent-cyan);
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .case-study-title {
+            font-size: var(--text-5xl);
+            font-weight: var(--font-black);
+            margin-bottom: var(--space-md);
+            max-width: 800px;
+        }
+        
+        .case-study-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Quick Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-primary);
+        }
+        
+        .stat-block {
+            text-align: left;
+        }
+        
+        .stat-number {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-black);
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+        
+        .stat-number.highlight {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-desc {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+        
+        /* TL;DR Section */
+        .tldr-section {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-3xl) auto;
+            max-width: var(--max-width-content);
+            position: relative;
+        }
+        
+        .tldr-label {
+            position: absolute;
+            top: -12px;
+            left: var(--space-lg);
+            background: var(--accent-primary);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            border-radius: var(--radius-sm);
+        }
+        
+        .tldr-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+        
+        .tldr-column h4 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--accent-cyan);
+        }
+        
+        .tldr-column p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin: 0;
+        }
+        
+        /* Content Sections */
+        .case-content {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .content-section {
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .content-section h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-cyan));
+            border-radius: 2px;
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-lg);
+            transition: color var(--transition-base);
+        }
+        
+        .back-link:hover {
+            color: var(--accent-primary);
+        }
+        
+        .back-link::before {
+            content: '←';
+        }
+        
+        /* Innovation Callout */
+        .innovation-callout {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.05));
+            border-left: 4px solid var(--accent-cyan);
+            padding: var(--space-lg);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: var(--space-xl) 0;
+        }
+        
+        .innovation-callout h4 {
+            color: var(--accent-cyan);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .innovation-callout p {
+            margin: 0;
+        }
+        
+        /* GUIDE Model Section */
+        .guide-model-section {
+            background: var(--bg-secondary);
+            padding: var(--space-3xl) var(--space-lg);
+            margin: var(--space-3xl) 0;
+        }
+        
+        .guide-container {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+        }
+        
+        .guide-container h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+        
+        .guide-container > p {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .guide-step {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .guide-step:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+        
+        .guide-letter {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-black);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .guide-word {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .guide-desc {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Research backing badge */
+        .research-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-primary);
+            font-size: var(--text-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            margin-top: auto;
+        }
+        
+        .guide-desc {
+            flex-grow: 1;
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Module Grid */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            position: relative;
+        }
+        
+        .module-number {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            font-weight: var(--font-bold);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+        }
+        
+        .module-card h4 {
+            font-size: var(--text-base);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            padding-right: var(--space-xl);
+        }
+        
+        .module-card p {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Design Philosophy */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .philosophy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+        }
+        
+        .philosophy-card h4 {
+            font-size: var(--text-lg);
+            color: var(--accent-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .philosophy-card p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Project Meta */
+        .project-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            padding: var(--space-lg);
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-primary);
+            margin-top: var(--space-lg);
+        }
+        
+        .meta-item {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .meta-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .meta-value {
+            font-weight: var(--font-semibold);
+            color: var(--text-primary);
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: rgba(234, 179, 8, 0.2);
+            color: #eab308;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+        
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #eab308;
+            border-radius: 50%;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+        }
+        
+        .tech-item-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .tech-item-value {
+            font-weight: var(--font-semibold);
+            color: var(--accent-primary);
+        }
+        
+        /* Differentiation Section */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .diff-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            border: 2px solid var(--border-primary);
+        }
+        
+        .diff-card.this-course {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .diff-card.other-course {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        
+        .diff-card h4 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .diff-card.this-course h4 {
+            color: var(--accent-primary);
+        }
+        
+        .diff-card.other-course h4 {
+            color: var(--accent-purple);
+        }
+        
+        .diff-card .subtitle {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+        
+        .diff-card p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--bg-secondary);
+            margin-top: var(--space-3xl);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .guide-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .guide-grid .guide-step:nth-child(4),
+            .guide-grid .guide-step:nth-child(5) {
+                grid-column: span 1;
+            }
+            
+            .module-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .stats-bar {
+                gap: var(--space-lg);
+            }
+            
+            .stat-number {
+                font-size: var(--text-2xl);
+            }
+            
+            .tldr-content,
+            .philosophy-grid,
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Andrew Gibson</a></div>
+        <ul class="nav-menu">
+            <li><a href="../index.html#professional">Professional Work</a></li>
+            <li><a href="../index.html#educational">Educational Lab</a></li>
+            <li><a href="../index.html#alpha">Alpha Showcase</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="case-study-hero">
+        <a href="../index.html#professional" class="back-link">Back to Professional Work</a>
+        
+        <span class="case-study-label">Case Study</span>
+        <h1 class="case-study-title">Difficult Conversations in the Workplace</h1>
+        <p class="case-study-subtitle">
+            A leadership development course built around a custom conversation planning framework. 
+            Teaching managers to initiate and navigate the uncomfortable-but-necessary dialogues 
+            that most leaders avoid.
+        </p>
+        
+        <div class="stats-bar">
+            <div class="stat-block">
+                <div class="stat-number highlight">5</div>
+                <div class="stat-desc">Weekly modules</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">60-90</div>
+                <div class="stat-desc">Minutes per session</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">2</div>
+                <div class="stat-desc">Learning tracks</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TL;DR Section -->
+    <div class="tldr-section">
+        <span class="tldr-label">TL;DR</span>
+        <div class="tldr-content">
+            <div class="tldr-column">
+                <h4>The Problem</h4>
+                <p>
+                    Leaders avoid hard conversations—performance issues, disengaged employees, sensitive feedback. 
+                    Not because they don't care, but because they lack a framework for navigating emotionally 
+                    complex dialogue without making things worse.
+                </p>
+            </div>
+            <div class="tldr-column">
+                <h4>The Solution</h4>
+                <p>
+                    A 5-module ILT course built around the <strong>GUIDE model</strong>—a custom conversation 
+                    planning framework I developed with research backing from behavioral psychology, adult learning 
+                    theory, and leadership science. Practical skills, not abstract concepts.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="case-content">
+        
+        <!-- The Challenge -->
+        <section class="content-section">
+            <h2>The Challenge</h2>
+            <p>
+                Every leader has a conversation they've been avoiding. The underperforming employee they keep 
+                hoping will "figure it out." The tension with a peer they've been dancing around. The feedback 
+                that could help someone grow—if only they knew how to deliver it without triggering defensiveness.
+            </p>
+            <p>
+                These aren't conflict situations (that's a different course). These are the proactive, 
+                uncomfortable-but-necessary conversations that shape team culture, employee development, and 
+                leadership credibility. Most managers know they should have them. Most don't know how.
+            </p>
+            <p>
+                The existing training landscape is full of abstract advice: "Be empathetic." "Use active listening." 
+                "Create psychological safety." All true—but none of it tells you what to actually <em>say</em> when 
+                you're sitting across from someone who's about to get defensive.
+            </p>
+            
+            <div class="innovation-callout">
+                <h4>💡 The Insight</h4>
+                <p>
+                    Leaders don't need more theory about emotional intelligence. They need <strong>micro-moves</strong>: 
+                    specific phrases, reset strategies, and a structured approach that works when their heart rate 
+                    spikes and their brain wants to retreat.
+                </p>
+            </div>
+        </section>
+        
+        <!-- My Role -->
+        <section class="content-section">
+            <h2>My Role</h2>
+            <p>
+                I designed this course end-to-end: learning objectives, module structure, the GUIDE framework itself, 
+                scenario scripts, interactive activities, and the Storyline 360 facilitation presentation. This isn't 
+                a course I'm building from someone else's content—the instructional approach and core framework are 
+                original work.
+            </p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Format</div>
+                    <div class="meta-value">Instructor-Led Training (ILT)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Delivery</div>
+                    <div class="meta-value">5 weekly sessions</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Audience</div>
+                    <div class="meta-value">Frontline Managers + Executive Track</div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- GUIDE Model Section -->
+    <section class="guide-model-section">
+        <div class="guide-container">
+            <h2>The GUIDE Model</h2>
+            <p>
+                A structured planning framework for emotionally complex, high-stakes conversations. 
+                Original in construction, grounded in established research.
+            </p>
+            
+            <div class="guide-grid">
+                <div class="guide-step">
+                    <div class="guide-letter">G</div>
+                    <div class="guide-word">Ground</div>
+                    <div class="guide-desc">Clarify purpose, facts, and goal before the conversation begins</div>
+                    <span class="research-badge">Cognitive Load Theory</span>
+                </div>
+                <div class="guide-step">
+                    <div class="guide-letter">U</div>
+                    <div class="guide-word">Understand</div>
+                    <div class="guide-desc">Invite their perspective and listen for the full picture</div>
+                    <span class="research-badge">Psychological Safety</span>
+                </div>
+                <div class="guide-step">
+                    <div class="guide-letter">I</div>
+                    <div class="guide-word">Identify</div>
+                    <div class="guide-desc">Collaborate on solutions and surface roadblocks together</div>
+                    <span class="research-badge">Motivational Interviewing</span>
+                </div>
+                <div class="guide-step">
+                    <div class="guide-letter">D</div>
+                    <div class="guide-word">Decide</div>
+                    <div class="guide-desc">Agree on specific actions, ownership, and follow-up</div>
+                    <span class="research-badge">Goal Commitment</span>
+                </div>
+                <div class="guide-step">
+                    <div class="guide-letter">E</div>
+                    <div class="guide-word">Evaluate</div>
+                    <div class="guide-desc">Follow up, reinforce progress, and adjust if needed</div>
+                    <span class="research-badge">Self-Efficacy Theory</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: var(--space-xl); font-size: var(--text-sm); color: var(--text-muted); text-align: center;">
+                Each step integrates evidence-based practices from behavioral psychology (Bandura, Gollwitzer), 
+                adult learning theory (Vygotsky), and leadership research (Edmondson, Locke & Latham).
+            </p>
+        </div>
+    </section>
+
+    <!-- Continue Main Content -->
+    <div class="case-content">
+        
+        <!-- Course Structure -->
+        <section class="content-section">
+            <h2>Course Structure</h2>
+            <p>
+                Five modules delivered weekly, each building on the last. The pacing allows for reflection activities 
+                and real-world application between sessions—learners come back having tested what they learned.
+            </p>
+            
+            <div class="module-grid">
+                <div class="module-card">
+                    <span class="module-number">01</span>
+                    <h4>What Makes Conversations Difficult</h4>
+                    <p>Unpacking emotional, identity-based, and relational dynamics. Mapping your own spectrum of difficulty.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-number">02</span>
+                    <h4>Leading with Emotional Intelligence</h4>
+                    <p>Real-time trigger recognition, regulation techniques, and demonstrating empathy without overstepping.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-number">03</span>
+                    <h4>Planning Before You Speak</h4>
+                    <p>Applying the GUIDE model. Building a real plan for a real conversation you've been avoiding.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-number">04</span>
+                    <h4>Responding in the Moment</h4>
+                    <p>Navigating surprise emotions, listening through defensiveness, redirecting while protecting dignity.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-number">05</span>
+                    <h4>Following Up After</h4>
+                    <p>Meaningful follow-up, trust-building behaviors, and knowing what closure actually looks like.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Design Philosophy -->
+        <section class="content-section">
+            <h2>Design Philosophy</h2>
+            <p>
+                This course is built on a core principle: leaders don't learn difficult conversations from lectures. 
+                They learn by doing—in low-stakes environments before the high-stakes moments arrive.
+            </p>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h4>Real-World Grounding From the Start</h4>
+                    <p>
+                        Each module opens with learners mapping their own workplace moments—not generic scenarios. 
+                        Module 3 has them write out a conversation they've been avoiding. That becomes the case 
+                        they prepare throughout the session.
+                    </p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Micro-Moves, Not Abstract Traits</h4>
+                    <p>
+                        We don't tell learners to "be emotionally intelligent." We give them reset strategies, 
+                        redirect phrasing, and reflection prompts. They walk away with phrases and cues—not concepts.
+                    </p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Practice Without Performance</h4>
+                    <p>
+                        Skill development through optional roleplay with guardrails, scenario analysis for those who 
+                        don't like live practice, and individual journaling. Capacity through reps, not tests.
+                    </p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>Personalized Outputs</h4>
+                    <p>
+                        Every module generates something the learner keeps: a GUIDE planning document, a reset strategy 
+                        map, a follow-up message rewrite. The course doesn't tell you what to say—it helps you build 
+                        your own voice.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Differentiation -->
+        <section class="content-section">
+            <h2>How This Differs from Conflict Training</h2>
+            <p>
+                I've built courses in both spaces. Here's how they're distinct:
+            </p>
+            
+            <div class="diff-grid">
+                <div class="diff-card this-course">
+                    <h4>Difficult Conversations</h4>
+                    <div class="subtitle">This course — Proactive</div>
+                    <p>
+                        Initiating uncomfortable dialogue before it becomes conflict. Performance issues, disengaged 
+                        employees, sensitive feedback. How do you identify when a conversation needs to happen, and 
+                        how do you navigate it without making things worse?
+                    </p>
+                </div>
+                <div class="diff-card other-course">
+                    <h4>Managing Workplace Conflict</h4>
+                    <div class="subtitle">Separate course — Reactive</div>
+                    <p>
+                        Handling tension that's already surfaced. Outbursts, friction between team members, 
+                        de-escalation. How do you identify when conflict is brewing and resolve it before it 
+                        damages the team?
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tech Stack -->
+        <section class="content-section">
+            <h2>Tools & Approach</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-item-label">Primary Build Tool</div>
+                    <div class="tech-item-value">Storyline 360</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Enhanced Elements</div>
+                    <div class="tech-item-value">Custom Web Objects</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Delivery Format</div>
+                    <div class="tech-item-value">ILT with facilitation aid</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-item-label">Planned Hosting</div>
+                    <div class="tech-item-value">LMS (TBD)</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: var(--space-lg);">
+                The Storyline presentation serves as a facilitation aid—interactive models, discussion prompts, and 
+                modular scenario content that can be layered by difficulty. Custom web objects extend native Storyline 
+                capabilities for interactions that wouldn't otherwise be possible.
+            </p>
+        </section>
+        
+        <!-- Key Learnings -->
+        <section class="content-section">
+            <h2>Design Insights</h2>
+            <p>
+                <strong>Frameworks need research backing.</strong> The GUIDE model isn't just a catchy acronym—each 
+                step maps to established theory (Edmondson on psychological safety, Gollwitzer on implementation 
+                intentions, Bandura on self-efficacy). This matters for stakeholder buy-in and instructional integrity.
+            </p>
+            <p>
+                <strong>ILT isn't dead—it's misused.</strong> Leadership development benefits from facilitated 
+                discussion, live roleplay, and peer reflection in ways that async WBT can't replicate. The key is 
+                making the facilitator a guide, not a lecturer.
+            </p>
+            <p>
+                <strong>Personal application beats generic scenarios.</strong> When learners work on <em>their</em> 
+                avoided conversations instead of hypothetical ones, engagement transforms. The stakes feel real 
+                because they are.
+            </p>
+        </section>
+        
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Leadership Development That Actually Transfers</h2>
+        <p>Practical frameworks, not just theory. Skills that work when the pressure is real.</p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="../index.html#professional" class="btn btn-secondary">View More Work</a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
